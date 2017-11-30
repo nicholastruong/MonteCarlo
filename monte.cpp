@@ -71,7 +71,7 @@ int main(){
 			countLessThan50++;
 		}
 	}
-	cout << countLessThan50 << endl;
+	//cout << countLessThan50 << endl;
 	double probLessThan50 = (double)countLessThan50/5000;
 	cout << "4a. P(X < 50) = " << probLessThan50 << endl;
 

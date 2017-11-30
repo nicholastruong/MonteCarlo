@@ -16,7 +16,7 @@ vector<double> generateRandNumbs(){
 	v[0] = l0;
 	for (int i = 1; i < 10000; i++){
 		long li = long(pow(7,5)*v[i-1])%long(pow(2,31) - 1);
-		cout << li << endl;
+		//cout << li << endl;
 		v[i] = li;
 	}
 	for (int i = 0; i < 10000; i++){
@@ -49,6 +49,34 @@ vector<int> generateBinomialRandNumbers(){
 	return nums;
 }
 
+//part 2
+void dailyPriceFluctuation(vector<double>* randomNumberVector){
+	vector<double> randPriceFluctuation = *(randomNumberVector);
+
+	int price = 100000;
+	cout << "Day 0 ending price: " << price;
+
+	for (int i = 0; i < 10000; i++){
+
+		//increase 100 with probability .45
+		if (randPriceFluctuation[i] < .45){
+			price += 100;
+		}
+
+		//decrease 200 with probability .25
+		else if (randPriceFluctuation[i] >= .45 && randPriceFluctuation[i] <= .7){
+			price -= 200;
+		}
+
+		//stays same with probability .3
+		else{
+			//price stays same
+		}
+
+		cout << "Day " << i+1 << " ending price: " << price << endl;
+	}
+
+}
 
 int main(){
 	srand(time(NULL));
@@ -57,6 +85,11 @@ int main(){
 	for (int i = 0; i < 10000; i++){
 		cout << randNumbers[i] << endl;
 	}
+
+	//calls part 2
+	dailyPriceFluctuation(&randNumbers);
+
+
 
 	//generate 5000 binomial random numbers (n = 70, p = .7)
 	vector<int> binomialRandNumbs = generateBinomialRandNumbers();

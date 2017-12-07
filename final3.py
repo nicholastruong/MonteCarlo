@@ -20,6 +20,10 @@ def generateBinomialRandNumbers() :
 		
 		nums.append(numSuccess);
 
+	#plots histogram
+	plt.hist(nums, bins=np.arange(0, 70, 1))  
+	plt.title("Count of 5000 X ~Bin(n=70, p=.7) 0 to 70")
+	plt.show()
 	
 	return nums;
 
